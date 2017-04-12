@@ -64,7 +64,7 @@ func main() {
 	if httpd_status.Connections.Active > active_threshold {
 		check.AddResult(nagiosplugin.CRITICAL, fmt.Sprintf("Active connections: %d", httpd_status.Connections.Active))
 	}
-	if httpd_status.Connections.Idle < idle_threshold {
+	if httpd_status.Connections.Idle > idle_threshold {
 		check.AddResult(nagiosplugin.CRITICAL, fmt.Sprintf("Idle connections: %d", httpd_status.Connections.Idle))
 	}
 
